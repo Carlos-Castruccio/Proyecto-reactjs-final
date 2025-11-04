@@ -91,12 +91,30 @@ src/
 └── main.jsx                  # Punto de entrada
 ```
 
-## Configuración de Firebase
+## Configuración del Proyecto
 
 ### Instalar dependencias
 ```bash
 npm install
 ```
+
+### Firebase
+Firebase está configurado directamente en `src/firebase/config.js` con las credenciales necesarias. No se requieren variables de entorno adicionales.
+
+### Configurar Firestore
+- Crear colección `items` en Firestore con documentos que contengan:
+  - `title` (string): Nombre del producto
+  - `price` (number): Precio del producto
+  - `description` (string): Descripción del producto
+  - `category` (string): Categoría del producto (ej: "smartphones", "laptops", "tablets", "audio")
+  - `image` (string): URL o ruta de la imagen
+  - `stock` (number): Cantidad disponible
+
+- Las órdenes se guardan automáticamente en la colección `orders` con:
+  - `buyer`: Datos del comprador (name, email, phone)
+  - `items`: Array de productos comprados
+  - `total`: Total de la compra
+  - `createdAt`: Timestamp de creación
 
 ## Scripts Disponibles
 

@@ -4,7 +4,7 @@ import { collection, getDocs, getDoc, doc, query, where } from 'firebase/firesto
 // Función auxiliar para verificar Firebase
 function checkFirebase() {
   if (!db) {
-    throw new Error('Firebase no está inicializado. Verifica que las variables de entorno estén configuradas en el archivo .env y reinicia el servidor de desarrollo.');
+    throw new Error('Firebase no está inicializado. Verifica la configuración de Firebase.');
   }
 }
 
