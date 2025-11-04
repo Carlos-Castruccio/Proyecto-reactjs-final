@@ -1,13 +1,12 @@
-# TechStore - Proyecto React
+# Proyecto Reactjs
 
-Aplicación e-commerce desarrollada con React que permite navegar por un catálogo de productos, ver detalles, gestionar un carrito de compras y realizar compras con registro en Firebase.
+Aplicación comercial desarrollada con React que permite navegar por un catálogo de productos, ver detalles, gestionar un carrito de compras y realizar compras con registro en Firebase.
 
 ## Funcionalidades Implementadas
 
 ### ✅ Conexión a Firebase
 - Conexión a Firestore para almacenar el listado de productos en la colección `items`
 - Almacenamiento de órdenes de compra en la colección `orders` al confirmar una compra
-- Variables de entorno configuradas mediante archivo `.env`
 
 ### ✅ Navegación y Rutas
 - Navegación completa con React Router entre:
@@ -94,36 +93,10 @@ src/
 
 ## Configuración de Firebase
 
-### 1. Instalar dependencias
+### Instalar dependencias
 ```bash
 npm install
 ```
-
-### 2. Configurar variables de entorno
-Crear archivo `.env` en la raíz del proyecto con:
-```env
-VITE_FIREBASE_API_KEY=tu-api-key
-VITE_FIREBASE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=tu-proyecto-id
-VITE_FIREBASE_STORAGE_BUCKET=tu-proyecto.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=tu-sender-id
-VITE_FIREBASE_APP_ID=tu-app-id
-```
-
-### 3. Configurar Firestore
-- Crear colección `items` en Firestore con documentos que contengan:
-  - `title` (string): Nombre del producto
-  - `price` (number): Precio del producto
-  - `description` (string): Descripción del producto
-  - `category` (string): Categoría del producto (ej: "smartphones", "laptops", "tablets", "audio")
-  - `image` (string): URL o ruta de la imagen
-  - `stock` (number): Cantidad disponible
-
-- Las órdenes se guardan automáticamente en la colección `orders` con:
-  - `buyer`: Datos del comprador (name, email, phone)
-  - `items`: Array de productos comprados
-  - `total`: Total de la compra
-  - `createdAt`: Timestamp de creación
 
 ## Scripts Disponibles
 
