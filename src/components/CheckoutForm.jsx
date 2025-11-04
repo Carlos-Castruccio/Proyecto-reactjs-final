@@ -77,27 +77,42 @@ const CheckoutForm = () => {
   return (
     <div className="checkout-container">
       <h1>Checkout</h1>
-      <form className="checkout-form" onSubmit={handleSubmit}>
-        <label>
-          Nombre
-          <input name="name" value={form.name} onChange={handleChange} required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" value={form.email} onChange={handleChange} required />
-        </label>
-        <label>
-          Teléfono
-          <input name="phone" value={form.phone} onChange={handleChange} required />
-        </label>
-        {error && <p className="error-text">{error}</p>}
-        <button className="btn-primary" type="submit" disabled={submitting}>
-          {submitting ? 'Procesando...' : 'Confirmar compra'}
-        </button>
-      </form>
-      <div className="checkout-summary">
-        <h3>Resumen</h3>
-        <p>Total: <strong>${totalPrice.toFixed(2)}</strong></p>
+      <div className="checkout-content">
+        <form className="checkout-form" onSubmit={handleSubmit}>
+          <h2>Datos del Comprador</h2>
+          <label>
+            Nombre
+            <input name="name" value={form.name} onChange={handleChange} required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" value={form.email} onChange={handleChange} required />
+          </label>
+          <label>
+            Teléfono
+            <input name="phone" value={form.phone} onChange={handleChange} required />
+          </label>
+          {error && <p className="error-text">{error}</p>}
+          <button className="btn-primary" type="submit" disabled={submitting}>
+            {submitting ? 'Procesando...' : 'Confirmar compra'}
+          </button>
+        </form>
+        <div className="checkout-summary">
+          <h3>Resumen de Compra</h3>
+          <div className="checkout-items">
+            {items.map((item) => (
+              <div key={item.id} className="checkout-item">
+                <span className="checkout-item-name">{item.title}</span>
+                <span className="checkout-item-quantity">x{item.quantity}</span>
+                <span className="checkout-item-price">${(item.price * item.quantity).toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+          <div className="checkout-total">
+            <span>Total a pagar:</span>
+            <strong>${totalPrice.toFixed(2)}</strong>
+          </div>
+        </div>
       </div>
     </div>
   );
